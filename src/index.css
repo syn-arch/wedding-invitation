@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Cormorant+Garamond:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+
+:root {
+  --base: #f8bbd0; /* Soft Pink */
+  --base-light: #fce4ec; /* Very Light Pink */
+  --base-dark: #f48fb1; /* Medium Pink */
+  --shadow: #f06292; /* Deeper Pink/Shadow */
+  --letter: #fff0f6; /* Almost White Pink */
+}
+* {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container-r {
+  background-image: url("/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content-r {
+  position: relative;
+  perspective: 600px;
+}
+
+.letter-r {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+  border-radius: 2px;
+  background: white;
+  padding: 10px;
+  transform-style: preserve-3d;
+  padding: 15px 0;
+}
+
+.message {
+  font-size: 12px;
+  text-align: center;
+}
+
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 180px;
+  background: linear-gradient(#cccbd7 0.5px, var(--base-light) 0.5px);
+  cursor: pointer;
+}
+.envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  border-top: 115px solid #f06292;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  box-sizing: border-box;
+  z-index: 30;
+  transform-origin: top;
+}
+.envelope::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 300px;
+  height: 180px;
+  z-index: 25;
+  background:
+            /* bottom-right */ linear-gradient(
+        30deg,
+        var(--base-dark) 47%,
+        var(--shadow) 50%,
+        var(--base) 50%
+      )
+      150px 90px / 150px 90px no-repeat,
+    /* top-left */
+      linear-gradient(
+        31deg,
+        var(--base) 49%,
+        var(--shadow) 50%,
+        transparent 50%
+      )
+      0 0 / 152px 90px no-repeat,
+    /* bottom-left */
+      linear-gradient(
+        150deg,
+        var(--base) 50%,
+        var(--shadow) 50%,
+        var(--base-dark) 53%
+      )
+      0 90px / 151px 90px no-repeat,
+    /* top-right */
+      linear-gradient(
+        148.7deg,
+        transparent 50%,
+        var(--shadow) 50%,
+        var(--base) 51%
+      )
+      150px 0 / 150px 90px no-repeat;
+}
+
+/* helper button (opsional) */
+.controls {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  justify-content: center;
+}
+.btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: white;
+  color: #f06292;
+  cursor: pointer;
+}
+.btn:hover {
+  filter: brightness(0.95);
+}
+
+.btn-next {
+  padding: 6px 12px;
+  cursor: pointer;
+  color: var(--base-dark);
+  cursor: pointer;
+}
+.btn-next:hover {
+  filter: brightness(0.95);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  .font-serif {
+    font-family: "Cormorant Garamond", Georgia, serif;
+  }
+}
+
+@layer components {
+  .book-shadow {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.05),
+      0 8px 16px rgba(0, 0, 0, 0.1), 0 16px 32px rgba(0, 0, 0, 0.05);
+  }
+
+  .page-transition {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.dancing-script {
+  font-family: "Dancing Script";
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
