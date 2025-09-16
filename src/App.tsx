@@ -18,7 +18,7 @@ import "aos/dist/aos.css";
 import toast, { Toaster } from "react-hot-toast";
 import song from "./assets/song.mp3";
 import border from "./assets/border.png";
-import bismillah from "./assets/bismillah.svg"
+import bismillah from "./assets/bismillah.svg";
 
 function App() {
   const [currentChapter, setCurrentChapter] = useState(0);
@@ -26,6 +26,7 @@ function App() {
   const [openedEnvelope, setOpenedEnvelope] = useState(false);
   const [isOpenCard, setIsOpenCard] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [Loading, setLoading] = useState(false);
   const [RSVP, setRSVP] = useState([]);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const letterRef = useRef(null);
@@ -109,6 +110,8 @@ function App() {
     const kehadiran = formData.get("attendance") as string;
     const pesan = formData.get("message") as string;
 
+    setLoading(true);
+
     fetch(API_URL + "insert.php", {
       method: "POST",
       headers: {
@@ -130,6 +133,7 @@ function App() {
         fetch(API_URL)
           .then((response) => response.json())
           .then((data) => {
+            setLoading(false);
             setRSVP(data);
           })
           .catch((error) => {
@@ -360,8 +364,9 @@ function App() {
               <button
                 type="submit"
                 className="w-full bg-rose-600 text-white px-4 py-2 rounded-md hover:bg-rose-700 transition"
+                disabled={Loading}
               >
-                Kirim
+                {Loading ? "Loading..." : "Kirim"}
               </button>
             </form>
           </div>
