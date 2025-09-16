@@ -19,6 +19,11 @@ import toast, { Toaster } from "react-hot-toast";
 import song from "./assets/song.mp3";
 import border from "./assets/border.png";
 import bismillah from "./assets/bismillah.svg";
+import ReactTimeAgo from "react-time-ago";
+import TimeAgo from "javascript-time-ago";
+import id from "javascript-time-ago/locale/id";
+
+TimeAgo.addDefaultLocale(id);
 
 function App() {
   const [currentChapter, setCurrentChapter] = useState(0);
@@ -208,7 +213,7 @@ function App() {
             <div data-aos="fade-up" data-aos-delay="900">
               <h3 className="dancing-script text-2xl text-slate-500 mb-2">&</h3>
               <h3 className="dancing-script text-3xl font-serif text-slate-700 mb-2">
-                Ai Siti Nurlatipah, S.M
+                Ai Siti Nurlatipah, S.M.
               </h3>
               <div className="w-1/2 h-0.5 bg-gradient-to-r from-pink-300 to-transparent mx-auto"></div>
 
@@ -379,11 +384,18 @@ function App() {
                   key={index}
                   className="bg-white/70 rounded-lg p-4 border border-rose-200"
                 >
-                  <h4 className="text-lg font-semibold text-rose-600">
+                  <span className="text-lg font-semibold text-rose-600">
                     {guest.nama}
-                  </h4>
+                  </span>
+                  <span
+                    className={`ml-2 text-sm rounded p-1 ${
+                      guest.kehadiran == "Hadir" ? "bg-green-200" : "bg-slate-200"
+                    }`}
+                  >
+                    {guest.kehadiran}
+                  </span>
                   <p className="text-sm text-gray-700">
-                    Kehadiran: {guest.kehadiran}
+                    <ReactTimeAgo date={guest.timestamp} locale="id" />
                   </p>
                   {guest.pesan && (
                     <p className="mt-2 text-gray-600 italic">"{guest.pesan}"</p>
