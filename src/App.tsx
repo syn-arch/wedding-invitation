@@ -18,6 +18,7 @@ import "aos/dist/aos.css";
 import toast, { Toaster } from "react-hot-toast";
 import song from "./assets/song.mp3";
 import border from "./assets/border.png";
+import bismillah from "./assets/bismillah.svg"
 
 function App() {
   const [currentChapter, setCurrentChapter] = useState(0);
@@ -180,7 +181,7 @@ function App() {
         <div className="space-y-6">
           <div className="text-center">
             <div data-aos="fade-up" data-aos-delay="600">
-              <img src="/bismillah.svg" className="mx-auto" alt="Adi & Ai" />
+              <img src={bismillah} className="mx-auto" alt="Adi & Ai" />
             </div>
             <p
               className="text-slate-600 my-6"
