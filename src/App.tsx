@@ -16,6 +16,8 @@ import BankCard from "./BankCard";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import toast, { Toaster } from "react-hot-toast";
+import song from "./assets/song.mp3";
+import border from "./assets/border.png";
 
 function App() {
   const [currentChapter, setCurrentChapter] = useState(0);
@@ -76,7 +78,7 @@ function App() {
 
   const togglePlay = () => {
     if (!audioRef.current) {
-      audioRef.current = new Audio("/assets/song.mp3");
+      audioRef.current = new Audio(song);
     }
 
     if (isPlaying) {
@@ -460,7 +462,7 @@ function App() {
             animate="animate"
             exit="exit"
           >
-            <div className="min-h-screen relative bg-no-repeat bg-cover bg-center bg-[url(/assets/bg.jpg)]">
+            <div className="min-h-screen relative bg-no-repeat bg-cover bg-center bg-[url(/bg.jpg)]">
               <div className="fixed bottom-5 right-5 z-30">
                 <button
                   onClick={togglePlay}
@@ -552,7 +554,7 @@ function App() {
                               <img
                                 data-aos="fade-up"
                                 data-aos-delay="300"
-                                src="/assets/border.png"
+                                src={border}
                                 alt=""
                                 className="w-3/4 mx-auto"
                               />
