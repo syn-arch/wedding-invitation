@@ -247,7 +247,7 @@ function App() {
               </div>
             </div>
             <a
-              href="https://maps.app.goo.gl/oaigmdgBJB4SwPAh7"
+              href="https://maps.app.goo.gl/tWe2gu5wL4tLWdqX8"
               className="mt-5 bg-slate-200 p-3 rounded"
               target="_blank"
             >

@@ -1,5 +1,7 @@
 import BankImg from "./assets/bri.png";
 import ChipImg from "./assets/chip-atm.png";
+import "aos/dist/aos.css";
+import toast, { Toaster } from "react-hot-toast";
 
 type BriCardProps = {
   name: string;
@@ -32,7 +34,7 @@ function formatAcc(num: string) {
 async function copy(text: string) {
   try {
     await navigator.clipboard.writeText(text);
-    await alert("Nomor rekening disalin ke clipboard");
+    await toast.success("Nomor rekening disalin ke clipboard");
   } catch {
     // fallback
     const ta = document.createElement("textarea");
