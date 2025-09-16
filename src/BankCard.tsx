@@ -68,14 +68,14 @@ export default function BankCard({
 
         {/* BRI logo */}
         <img
-          src="/bri.png"
+          src="/assets/bri.png"
           alt=""
           className="h-5 ms-auto brightness-0 invert"
         />
 
         {/* Chip + hologram */}
         <div className="mt-0 flex items-center gap-4">
-          <img src="/chip-atm.png" className="h-12 " alt="" />
+          <img src="/assets/chip-atm.png" className="h-12 " alt="" />
         </div>
 
         {/* Account number */}
