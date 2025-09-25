@@ -80,7 +80,7 @@ function App() {
     setTimeout(() => {
       setOpenedEnvelope(true);
       togglePlay();
-    }, 15000);
+    }, 10000);
   };
 
   const togglePlay = () => {
